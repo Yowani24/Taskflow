@@ -9,9 +9,11 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import { RxDashboard } from "react-icons/rx";
 import TaskCreateModal from "./TaskCreateModal";
+import { Chip, Stack } from "@mui/material";
 
-export default function TopNavBar() {
+export default function TopNavBar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -36,63 +38,110 @@ export default function TopNavBar() {
           boxShadow: 0,
           borderBottom: "1px solid #d4d3d3",
           background: "#6258f1",
+          height: 80,
+          justifyContent: "center",
+          paddingX: 20,
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block", color: "#ffffff" } }}
+            sx={{
+              display: { xs: "none", sm: "block", color: "#ffffff" },
+              fontWeight: "bold",
+              fontSize: 25,
+            }}
           >
             TaskFlow
           </Typography>
-          <Box sx={{ flexGrow: 1 }} />
-          <TaskCreateModal />
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            color={"#ffffff"}
+            gap={2}
+          >
+            <Chip
+              sx={{
+                color: "#ffffff",
+                cursor: "pointer",
+                "&:hover": { background: "#e2e2e22c" },
+                "&:active": { background: "#e2e2e210" },
+                paddingX: 1,
+                background: props.value == 1 ? "#b3d6ff6b" : "",
+              }}
+              icon={<RxDashboard color="#ffffff" size={20} />}
+              onClick={() => {
+                props.handleChange(1);
+                props.setStatus("tudo");
+              }}
+              label="Overview"
+            />
+            <Chip
+              sx={{
+                color: "#ffffff",
+                cursor: "pointer",
+                "&:hover": { background: "#e2e2e22c" },
+                "&:active": { background: "#e2e2e210" },
+                paddingX: 1,
+                background: props.value == 2 ? "#b3d6ff6b" : "",
+              }}
+              onClick={() => {
+                props.handleChange(2);
+                props.setStatus("initialized");
+              }}
+              label="Em desenvolvimento"
+            />
+            <Chip
+              sx={{
+                color: "#ffffff",
+                cursor: "pointer",
+                "&:hover": { background: "#e2e2e22c" },
+                "&:active": { background: "#e2e2e210" },
+                paddingX: 1,
+                background: props.value == 3 ? "#b3d6ff6b" : "",
+              }}
+              label="Em espera"
+              onClick={() => {
+                props.handleChange(3);
+                props.setStatus("standby");
+              }}
+            />
+            <Chip
+              sx={{
+                color: "#ffffff",
+                cursor: "pointer",
+                "&:hover": { background: "#e2e2e22c" },
+                "&:active": { background: "#e2e2e210" },
+                paddingX: 1,
+                background: props.value == 4 ? "#b3d6ff6b" : "",
+              }}
+              label="Concluído"
+              onClick={() => {
+                props.handleChange(4);
+                props.setStatus("done");
+              }}
+            />
+          </Stack>
+
+          <Stack direction={"row"} alignItems={"center"}>
+            <TaskCreateModal />
+            <Stack direction={"row"} alignItems={"center"} gap={1.5}>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Typography>João Augusto da Costa</Typography>
+            </Stack>
+          </Stack>
         </Toolbar>
       </AppBar>
     </Box>

@@ -2,7 +2,6 @@ import React from "react";
 import TopNavBar from "./TopNavBar";
 import { Box } from "@mui/material";
 import TaskCard from "./TaskCard";
-import Chip from "@mui/material/Chip";
 import useFetch from "../../../hook/useFetch";
 
 const logedInUserName = "João da Costa";
@@ -18,53 +17,15 @@ export default function TaskFlow() {
   };
 
   return (
-    <div>
-      <TopNavBar />
-      <Box sx={{ width: "100%", typography: "body1" }}>
-        <Box
-          sx={{
-            marginTop: 5,
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Chip
-            label="Tudo"
-            sx={{ marginRight: 5, background: value == 1 ? "#b9b9b9" : "" }}
-            onClick={() => {
-              handleChange(1);
-              setStatus("tudo");
-            }}
-          />
-          <Chip
-            label="Em desenvolvimento"
-            sx={{ background: value == 2 ? "#b9b9b9" : "" }}
-            onClick={() => {
-              handleChange(2);
-              setStatus("initialized");
-            }}
-          />
-          <Chip
-            sx={{ marginX: 5, background: value == 3 ? "#b9b9b9" : "" }}
-            label="Em espera"
-            onClick={() => {
-              handleChange(3);
-              setStatus("standby");
-            }}
-          />
-          <Chip
-            sx={{ background: value == 4 ? "#b9b9b9" : "" }}
-            label="Concluído"
-            onClick={() => {
-              handleChange(4);
-              setStatus("done");
-            }}
-          />
-        </Box>
-      </Box>
+    <Box>
+      <TopNavBar
+        value={value}
+        setStatus={setStatus}
+        handleChange={handleChange}
+      />
       <Box
         sx={{
-          paddingX: 10,
+          paddingX: 23,
           paddingY: 5,
           display: "flex",
           flexWrap: "wrap",
@@ -91,6 +52,6 @@ export default function TaskFlow() {
             />
           ))}
       </Box>
-    </div>
+    </Box>
   );
 }

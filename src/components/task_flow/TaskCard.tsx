@@ -19,6 +19,8 @@ export default function TaskCard(props) {
         borderRadius: 4,
         boxShadow: "rgba(15, 8, 8, 0.1) -4px 9px 25px -6px",
         "&:hover": { boxShadow: "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px" },
+        border: "1px solid #e5e7eb",
+        background: "#f7f9fd",
       }}
     >
       <Stack>
@@ -40,7 +42,8 @@ export default function TaskCard(props) {
             display={"flex"}
             alignItems={"center"}
             fontSize={12}
-            bgcolor={"#ebebeb"}
+            bgcolor={"#ffffff"}
+            border={"1px solid #dde6f3e3"}
             borderRadius={50}
             paddingX={1}
             color={"gray"}
@@ -52,7 +55,8 @@ export default function TaskCard(props) {
             display={"flex"}
             alignItems={"center"}
             fontSize={12}
-            bgcolor={"#ebebeb"}
+            bgcolor={"#ffffff"}
+            border={"1px solid #dde6f3e3"}
             borderRadius={50}
             paddingX={1}
             color={"gray"}
@@ -73,11 +77,13 @@ export default function TaskCard(props) {
         <Avatar
           alt="Travis Howard"
           src="/static/images/avatar/2.jpg"
-          sx={{ width: 30, height: 30 }}
+          sx={{ width: 30, height: 30, background: "#c2bef59f" }}
         />
         <Typography
           fontSize={12}
-          sx={{ background: "#ebebeb", borderRadius: 20, paddingX: 1 }}
+          bgcolor={"#ffffff"}
+          border={"1px solid #dde6f3e3"}
+          sx={{ borderRadius: 20, paddingX: 1 }}
         >
           {props.developer}
         </Typography>

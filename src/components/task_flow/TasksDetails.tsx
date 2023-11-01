@@ -85,11 +85,11 @@ export default function TasksDetails({ taskId }) {
     <>
       <Avatar
         sx={{
-          bgcolor: "#dadada",
+          bgcolor: "#c2bef59f",
           width: 30,
           height: 30,
           cursor: "pointer",
-          "&:hover": { background: "gray" },
+          "&:hover": { background: "#847bff" },
           transition: ".2s",
         }}
         onClick={handleClickOpen}

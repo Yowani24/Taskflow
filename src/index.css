@@ -92,13 +92,15 @@ a:hover {
 
 body {
   margin: 0;
-  background: #e5e8ec;
+  /* background: #e5e8ec; */
+  background: #ffffff;
 
   /* display: flex;
   place-items: center; */
   min-width: 320px;
   min-height: 100vh;
-  /* background-image: url("./assets/bkgd.png"); */
+  /* background-image: url("/public/bgwaves.png"); */
+  /* background: red; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
