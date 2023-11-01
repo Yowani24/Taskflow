@@ -31,7 +31,6 @@ export default function TasksDetails({ taskId }) {
     handleDeleteSubActivity,
     handleDeleteProject,
   } = useFetch();
-  console.log(fetchedData);
   const [open, setOpen] = React.useState(false);
   const [progressPercentage, setProgressPercentage] = React.useState(0);
   const [anchorEl, setAnchorEl] = React.useState(null);
