@@ -35,7 +35,7 @@ const useFetch = (endpoint, query) => {
   //   setLoading(true);
 
   //   try {
-  //     const response = await axios.get("http://taskflowapi2.onrender.com/project");
+  //     const response = await axios.get("https://taskflowapi2.onrender.com/project");
 
   //     setData(response.data);
   //   } catch (error) {
@@ -55,8 +55,8 @@ const useFetch = (endpoint, query) => {
 
     try {
       const [projectResponse, subactivityResponse] = await Promise.all([
-        axios.get("http://taskflowapi2.onrender.com/project"),
-        axios.get("http://taskflowapi2.onrender.com/subactivity"),
+        axios.get("https://taskflowapi2.onrender.com/project"),
+        axios.get("https://taskflowapi2.onrender.com/subactivity"),
       ]);
 
       setData(projectResponse.data);
@@ -80,7 +80,7 @@ const useFetch = (endpoint, query) => {
   const handleProcessUpdate = async (data, id) => {
     try {
       await axios.patch(
-        `http://taskflowapi2.onrender.com/dadoshistorico/${id}`,
+        `https://taskflowapi2.onrender.com/dadoshistorico/${id}`,
         data[0]
       );
       refetch();
@@ -98,7 +98,7 @@ const useFetch = (endpoint, query) => {
     handleClose
   ) => {
     try {
-      await axios.post("http://taskflowapi2.onrender.com/project", {
+      await axios.post("https://taskflowapi2.onrender.com/project", {
         projectName,
         activity,
         start,
@@ -115,7 +115,7 @@ const useFetch = (endpoint, query) => {
   const handleDeleteProject = async (projectId) => {
     try {
       await axios.delete(
-        `http://taskflowapi2.onrender.com/project/${projectId}`
+        `https://taskflowapi2.onrender.com/project/${projectId}`
       );
       refetch();
     } catch (error) {
@@ -124,9 +124,9 @@ const useFetch = (endpoint, query) => {
   };
   // const handleDeleteProject = async (projectId) => {
   //   try {
-  //     await axios.delete(`http://taskflowapi2.onrender.com/subactivity/${projectId}`);
+  //     await axios.delete(`https://taskflowapi2.onrender.com/subactivity/${projectId}`);
 
-  //     await axios.delete(`http://taskflowapi2.onrender.com/project/${projectId}`);
+  //     await axios.delete(`https://taskflowapi2.onrender.com/project/${projectId}`);
   //     refetch();
   //   } catch (error) {
   //     console.error(error);
@@ -135,7 +135,7 @@ const useFetch = (endpoint, query) => {
 
   const handleCreateSubActivity = async (name, projectId) => {
     try {
-      await axios.post("http://taskflowapi2.onrender.com/subactivity", {
+      await axios.post("https://taskflowapi2.onrender.com/subactivity", {
         name,
         projectId,
       });
@@ -148,7 +148,7 @@ const useFetch = (endpoint, query) => {
   const handleDeleteSubActivity = async (subactivityId) => {
     try {
       await axios.delete(
-        `http://taskflowapi2.onrender.com/subactivity/${subactivityId}`
+        `https://taskflowapi2.onrender.com/subactivity/${subactivityId}`
       );
       refetch();
     } catch (error) {
