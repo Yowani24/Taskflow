@@ -93,8 +93,8 @@ export default function TaskCreateModal() {
                   size="small"
                   sx={{ marginBottom: 2, borderRadius: 2 }}
                 >
-                  <MenuItem value={"Ibá"}>Ibá</MenuItem>
-                  <MenuItem value={"Aperam"}>Aperam</MenuItem>
+                  <MenuItem value={"Ibá"}>Dikanda</MenuItem>
+                  <MenuItem value={"Aperam"}>Farming</MenuItem>
                   <MenuItem value={"Inventário"}>Inventário</MenuItem>
                 </Select>
               </FormControl>
